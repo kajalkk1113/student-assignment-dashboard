@@ -26,14 +26,11 @@ function Login({ onLogin }) {
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-indigo-950 via-violet-900 to-slate-950 flex items-center justify-center px-4 py-10">
 
-      {/* Background decorations */}
       <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-purple-500/20 blur-3xl" />
       <div className="absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-blue-500/20 blur-3xl" />
 
-      {/* Login card */}
       <div className="relative w-full max-w-md">
 
-        {/* Brand */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center h-16 w-16 rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 shadow-xl shadow-indigo-500/30 mb-4">
             <GraduationCap size={34} className="text-white" />
@@ -48,7 +45,6 @@ function Login({ onLogin }) {
           </p>
         </div>
 
-        {/* Card */}
         <div className="rounded-3xl border border-white/20 bg-white/10 backdrop-blur-xl p-7 sm:p-9 shadow-2xl">
 
           <div className="flex items-center gap-3 mb-7">
@@ -66,7 +62,6 @@ function Login({ onLogin }) {
             </div>
           </div>
 
-          {/* User selection */}
           <label className="block text-sm font-semibold text-indigo-100 mb-2">
             Select Demo User
           </label>
@@ -90,7 +85,6 @@ function Login({ onLogin }) {
 
           </div>
 
-          {/* Selected user */}
           {selectedUser && (
             <div className="mb-5 flex items-center gap-3 rounded-xl bg-white/10 border border-white/10 p-3">
               <div className="h-10 w-10 rounded-full bg-gradient-to-br from-violet-400 to-indigo-500 flex items-center justify-center text-white font-bold">
@@ -108,7 +102,6 @@ function Login({ onLogin }) {
             </div>
           )}
 
-          {/* Login button */}
           <button
             onClick={handleLogin}
             disabled={!selectedUser}
@@ -122,7 +115,6 @@ function Login({ onLogin }) {
             />
           </button>
 
-          {/* Footer */}
           <div className="mt-7 flex items-center justify-center gap-2 text-sm text-indigo-200">
             <BookOpen size={16} />
             Student Assignment Management System
