@@ -26,7 +26,6 @@ function Sidebar({
 
   return (
     <>
-      {/* Mobile Overlay */}
       {mobileOpen && (
         <button
           type="button"
@@ -36,7 +35,6 @@ function Sidebar({
         />
       )}
 
-      {/* Sidebar */}
       <aside
         className={`
           fixed inset-y-0 left-0 z-50
@@ -56,7 +54,6 @@ function Sidebar({
           }
         `}
       >
-        {/* Logo */}
         <div
           className={`flex shrink-0 items-center justify-between border-b px-5 py-6 ${
             darkMode ? "border-slate-800" : "border-slate-100"
@@ -75,7 +72,6 @@ function Sidebar({
             </div>
           </div>
 
-          {/* Close Button - Mobile */}
           <button
             type="button"
             onClick={() => setMobileOpen(false)}
@@ -86,7 +82,6 @@ function Sidebar({
           </button>
         </div>
 
-        {/* Navigation */}
         <nav className="flex-1 space-y-2 overflow-y-auto px-4 py-6">
           <p className="mb-4 px-3 text-xs font-semibold uppercase text-slate-400">
             Menu
@@ -125,7 +120,6 @@ function Sidebar({
           })}
         </nav>
 
-        {/* Dark Mode */}
         <div
           className={`shrink-0 border-b px-4 pb-4 ${
             darkMode ? "border-slate-800" : "border-slate-100"
@@ -167,7 +161,6 @@ function Sidebar({
           </button>
         </div>
 
-        {/* User Profile */}
         <div className="shrink-0 p-4">
           <div className="mb-3 flex items-center gap-3 p-3">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-100 font-bold text-indigo-600">
@@ -185,7 +178,6 @@ function Sidebar({
             </div>
           </div>
 
-          {/* Logout */}
           <button
             type="button"
             onClick={onLogout}
