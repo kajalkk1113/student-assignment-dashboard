@@ -11,7 +11,7 @@ function DashboardLayout({ user, onLogout, children }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activePage, setActivePage] = useState("Dashboard");
 
-  // Apply dark mode to the entire HTML document
+  // Apply dark mode globally
   useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);
     document.body.classList.toggle("dark-mode", darkMode);
@@ -19,12 +19,27 @@ function DashboardLayout({ user, onLogout, children }) {
     localStorage.setItem("darkMode", String(darkMode));
   }, [darkMode]);
 
+  // Close mobile sidebar when screen becomes desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setMobileOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const toggleDarkMode = () => {
     setDarkMode((previous) => !previous);
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 text-slate-800 transition-colors duration-300 dark:bg-[#020617] dark:text-slate-100">
+    <div className="flex min-h-screen w-full overflow-x-hidden bg-slate-100 dark:bg-slate-950">
+
+      {/* Sidebar */}
       <Sidebar
         user={user}
         onLogout={onLogout}
@@ -36,15 +51,22 @@ function DashboardLayout({ user, onLogout, children }) {
         setDarkMode={toggleDarkMode}
       />
 
-      <div className="min-h-screen md:ml-[280px]">
+      {/* Main Content */}
+      <div className="flex min-h-screen min-w-0 flex-1 flex-col">
+
+        {/* Navbar */}
         <Navbar
           user={user}
           setMobileOpen={setMobileOpen}
         />
 
-        <main className="min-h-[calc(100vh-80px)] bg-slate-100 p-4 transition-colors duration-300 sm:p-6 dark:bg-[#020617]">
-          {children}
+        {/* Dashboard Content */}
+        <main className="w-full min-w-0 flex-1 p-3 sm:p-5 md:p-6 lg:p-8">
+          <div className="mx-auto w-full max-w-[1600px] min-w-0">
+            {children}
+          </div>
         </main>
+
       </div>
     </div>
   );
