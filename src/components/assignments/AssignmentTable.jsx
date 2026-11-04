@@ -36,7 +36,6 @@ function AssignmentTable({ assignments, onEdit, onDelete }) {
       <div className="overflow-x-auto">
         <table className="w-full text-left text-sm">
 
-          {/* Table Header */}
           <thead className="bg-slate-50 text-xs uppercase text-slate-500 dark:bg-slate-950 dark:text-slate-400">
             <tr>
               <th className="px-5 py-4">Assignment</th>
@@ -48,7 +47,6 @@ function AssignmentTable({ assignments, onEdit, onDelete }) {
             </tr>
           </thead>
 
-          {/* Table Body */}
           <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
             {assignments.map((assignment) => {
               const assignedStudents = assignment.assignedTo || [];
@@ -84,12 +82,10 @@ function AssignmentTable({ assignments, onEdit, onDelete }) {
                     </p>
                   </td>
 
-                  {/* Due Date */}
                   <td className="whitespace-nowrap px-5 py-4 text-slate-600 dark:text-slate-300">
                     {formatDate(assignment.dueDate)}
                   </td>
 
-                  {/* Students */}
                   <td className="px-5 py-4">
                     <div className="flex items-center gap-2 text-slate-600 dark:text-slate-300">
                       <Users size={16} />
@@ -97,7 +93,6 @@ function AssignmentTable({ assignments, onEdit, onDelete }) {
                     </div>
                   </td>
 
-                  {/* Completion */}
                   <td className="min-w-44 px-5 py-4">
                     <div className="mb-2 flex justify-between text-xs">
                       <span className="text-slate-500 dark:text-slate-400">
@@ -112,7 +107,6 @@ function AssignmentTable({ assignments, onEdit, onDelete }) {
                     <ProgressBar percentage={percentage} />
                   </td>
 
-                  {/* Status */}
                   <td className="px-5 py-4">
                     <StatusBadge
                       status={
@@ -123,7 +117,6 @@ function AssignmentTable({ assignments, onEdit, onDelete }) {
                     />
                   </td>
 
-                  {/* Actions */}
                   <td className="px-5 py-4">
                     <div className="flex items-center gap-2">
                       <button
