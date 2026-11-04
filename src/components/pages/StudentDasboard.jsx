@@ -163,7 +163,6 @@ function StudentDashboard({ user, onLogout }) {
       <div className="min-h-screen rounded-2xl p-2 sm:p-4 transition-colors duration-300">
         <div className="space-y-8 pb-8">
 
-          {/* Welcome Banner */}
           <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 via-violet-600 to-purple-700 p-7 sm:p-10 text-white shadow-xl shadow-indigo-200/30">
             <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
             <div className="absolute -bottom-20 -right-10 h-64 w-64 rounded-full bg-fuchsia-400/20 blur-3xl" />
@@ -269,7 +268,6 @@ function StudentDashboard({ user, onLogout }) {
 
        
           <section className={`rounded-2xl border p-5 shadow-sm ${card}`}>
-            {/* Search */}
             <div className="relative">
               <Search
                 size={20}
