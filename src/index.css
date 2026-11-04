@@ -1,0 +1,90 @@
+
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Global dark theme */
+html.dark,
+html.dark body,
+html.dark #root {
+  background-color: #020617;
+  color: #f1f5f9;
+}
+
+/* White cards */
+html.dark .bg-white {
+  background-color: #0f172a !important;
+}
+
+/* Light backgrounds */
+html.dark .bg-slate-50 {
+  background-color: #0f172a !important;
+}
+
+html.dark .bg-slate-100 {
+  background-color: #020617 !important;
+}
+
+/* Text colors */
+html.dark .text-slate-800 {
+  color: #f1f5f9 !important;
+}
+
+html.dark .text-slate-700 {
+  color: #e2e8f0 !important;
+}
+
+html.dark .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+/* Borders */
+html.dark .border-slate-100 {
+  border-color: #1e293b !important;
+}
+
+html.dark .border-slate-200 {
+  border-color: #334155 !important;
+}
+
+html.dark .border-slate-300 {
+  border-color: #475569 !important;
+}
+
+/* Inputs */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  color: #f1f5f9;
+  background-color: #0f172a;
+  border-color: #334155;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #64748b;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+}
