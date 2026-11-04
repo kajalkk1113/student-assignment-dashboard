@@ -28,31 +28,28 @@ function StudentDashboard({ user, onLogout }) {
   const [dueFilter, setDueFilter] = useState("All Dates");
   const [sortOrder, setSortOrder] = useState("earliest");
 
-  // Theme classes
   const card =
     "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-100";
 
   const muted = "text-slate-500 dark:text-slate-400";
 
-  // Today's date
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  // Assignments assigned to current student
   const myAssignments = assignments.filter((assignment) =>
     assignment.assignedTo?.includes(user.id)
   );
 
-  // Submission status
+
   const isSubmitted = (assignment) =>
     assignment.submissions?.[user.id]?.status === "Submitted";
 
-  // Overdue status
+
   const isOverdue = (assignment) =>
     !isSubmitted(assignment) &&
     new Date(assignment.dueDate) < today;
 
-  // Statistics
+
   const submittedCount = myAssignments.filter(isSubmitted).length;
 
   const pendingCount = myAssignments.filter(
@@ -67,7 +64,7 @@ function StudentDashboard({ user, onLogout }) {
       ? Math.round((submittedCount / myAssignments.length) * 100)
       : 0;
 
-  // Search, filtering and sorting
+
   const filteredAssignments = myAssignments
     .filter((assignment) => {
       const title = assignment.title || "";
@@ -121,13 +118,12 @@ function StudentDashboard({ user, onLogout }) {
         : dateB - dateA;
     });
 
-  // Submit assignment
+
   const handleConfirmSubmission = (assignmentId) => {
     submitAssignment(assignmentId, user.id);
     setSelectedAssignment(null);
   };
 
-  // Reset filters
   const resetFilters = () => {
     setSearch("");
     setFilter("All");
@@ -135,7 +131,6 @@ function StudentDashboard({ user, onLogout }) {
     setSortOrder("earliest");
   };
 
-  // Statistics cards
   const stats = [
     {
       title: "Total Assignments",
@@ -200,7 +195,7 @@ function StudentDashboard({ user, onLogout }) {
             </div>
           </section>
 
-          {/* Statistics */}
+
           <section className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
             {stats.map((stat) => {
               const Icon = stat.icon;
@@ -239,7 +234,6 @@ function StudentDashboard({ user, onLogout }) {
             })}
           </section>
 
-          {/* Learning Progress */}
           <section
             className={`rounded-2xl border p-6 shadow-sm transition-colors sm:p-8 ${card}`}
           >
@@ -273,7 +267,7 @@ function StudentDashboard({ user, onLogout }) {
             </div>
           </section>
 
-          {/* Search and Filters */}
+       
           <section className={`rounded-2xl border p-5 shadow-sm ${card}`}>
             {/* Search */}
             <div className="relative">
@@ -292,10 +286,10 @@ function StudentDashboard({ user, onLogout }) {
               />
             </div>
 
-            {/* Filters */}
+      
             <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
 
-              {/* Status */}
+         
               <label className="flex flex-col gap-2 text-sm font-medium">
                 <span className={muted}>Filter by Status</span>
 
@@ -312,7 +306,6 @@ function StudentDashboard({ user, onLogout }) {
                 </select>
               </label>
 
-              {/* Due Date */}
               <label className="flex flex-col gap-2 text-sm font-medium">
                 <span className={muted}>Filter by Due Date</span>
 
@@ -330,7 +323,6 @@ function StudentDashboard({ user, onLogout }) {
                 </select>
               </label>
 
-              {/* Sorting */}
               <label className="flex flex-col gap-2 text-sm font-medium">
                 <span className={muted}>Sort by Due Date</span>
 
@@ -347,7 +339,7 @@ function StudentDashboard({ user, onLogout }) {
             </div>
           </section>
 
-          {/* Assignment List */}
+
           <section>
             <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
@@ -413,7 +405,7 @@ function StudentDashboard({ user, onLogout }) {
         </div>
       </div>
 
-      {/* Submission Modal */}
+ 
       {selectedAssignment && (
         <SubmissionModal
           assignment={selectedAssignment}
