@@ -19,7 +19,7 @@ function DashboardLayout({ user, onLogout, children }) {
     localStorage.setItem("darkMode", String(darkMode));
   }, [darkMode]);
 
-  // Close mobile sidebar when screen becomes desktop
+  // Close mobile sidebar when clicking outside or resizing
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
@@ -29,15 +29,17 @@ function DashboardLayout({ user, onLogout, children }) {
 
     window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const toggleDarkMode = () => {
-    setDarkMode((previous) => !previous);
+    setDarkMode((prev) => !prev);
   };
 
   return (
-    <div className="flex min-h-screen w-full overflow-x-hidden bg-slate-100 dark:bg-slate-950">
+    <div className="flex min-h-screen w-full overflow-x-clip bg-slate-100 dark:bg-slate-950">
 
       {/* Sidebar */}
       <Sidebar
@@ -51,17 +53,18 @@ function DashboardLayout({ user, onLogout, children }) {
         setDarkMode={toggleDarkMode}
       />
 
-      {/* Main Content */}
-      <div className="flex min-h-screen min-w-0 flex-1 flex-col">
+      {/* Main Layout */}
+      <div className="flex min-w-0 flex-1 flex-col">
 
         {/* Navbar */}
         <Navbar
           user={user}
+          activePage={activePage}
           setMobileOpen={setMobileOpen}
         />
 
-        {/* Dashboard Content */}
-        <main className="w-full min-w-0 flex-1 p-3 sm:p-5 md:p-6 lg:p-8">
+        {/* Main Content */}
+        <main className="min-w-0 w-full flex-1 p-3 sm:p-5 lg:p-8">
           <div className="mx-auto w-full max-w-[1600px] min-w-0">
             {children}
           </div>
