@@ -12,7 +12,6 @@ function SubmissionModal({ assignment, onClose, onConfirm }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
       <div className="bg-white w-full max-w-md rounded-2xl shadow-xl p-6">
 
-        {/* Header */}
         <div className="flex items-center justify-between mb-5">
           <h2 className="text-lg font-semibold text-slate-800">
             Submit Assignment
@@ -27,7 +26,6 @@ function SubmissionModal({ assignment, onClose, onConfirm }) {
           </button>
         </div>
 
-        {/* Step 1 */}
         {step === 1 && (
           <>
             <div className="bg-indigo-50 rounded-xl p-4 mb-4">
@@ -65,7 +63,6 @@ function SubmissionModal({ assignment, onClose, onConfirm }) {
           </>
         )}
 
-        {/* Step 2 */}
         {step === 2 && (
           <>
             <div className="text-center py-4">
