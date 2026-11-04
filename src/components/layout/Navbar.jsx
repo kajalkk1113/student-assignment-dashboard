@@ -8,64 +8,79 @@ function Navbar({ user, activePage, setMobileOpen }) {
     year: "numeric",
   });
 
+  const userName = user?.name || "User";
+
   return (
-    <header className="bg-white border-b border-slate-200 px-4 sm:px-6 lg:px-8 py-4">
-      <div className="flex items-center justify-between gap-4">
+    <header className="sticky top-0 z-30 w-full border-b border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+
+      <div className="flex min-h-[68px] w-full items-center justify-between gap-2 px-3 sm:px-5 lg:px-8">
 
         {/* Left Section */}
-        <div className="flex items-center gap-4">
+        <div className="flex min-w-0 items-center gap-2 sm:gap-4">
+
+          {/* Mobile Menu */}
           <button
+            type="button"
             onClick={() => setMobileOpen(true)}
-            className="lg:hidden p-2 rounded-lg hover:bg-slate-100"
+            className="flex-shrink-0 rounded-lg p-2 text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 lg:hidden"
             aria-label="Open navigation menu"
           >
             <Menu size={22} />
           </button>
 
-          <div>
-            <h1 className="text-xl sm:text-2xl font-bold text-slate-800">
-              {activePage}
+          {/* Page Title */}
+          <div className="min-w-0">
+            <h1 className="truncate text-base font-bold text-slate-800 dark:text-white sm:text-xl lg:text-2xl">
+              {activePage || "Dashboard"}
             </h1>
 
-            <p className="hidden sm:block text-sm text-slate-500 mt-1">
-              Welcome back, {user.name}!
+            <p className="mt-0.5 hidden truncate text-xs text-slate-500 sm:block sm:text-sm dark:text-slate-400">
+              Welcome back, {userName}!
             </p>
           </div>
         </div>
 
         {/* Right Section */}
-        <div className="flex items-center gap-3 sm:gap-5">
+        <div className="flex flex-shrink-0 items-center gap-1.5 sm:gap-3 lg:gap-5">
 
-          <div className="hidden md:flex items-center gap-2 text-sm text-slate-500">
+          {/* Date */}
+          <div className="hidden items-center gap-2 text-sm text-slate-500 md:flex dark:text-slate-400">
             <CalendarDays size={18} />
-            {today}
+            <span>{today}</span>
           </div>
 
+          {/* Notifications */}
           <button
-            className="relative p-2 rounded-xl hover:bg-slate-100 text-slate-500"
+            type="button"
+            className="relative rounded-xl p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
             aria-label="Notifications"
           >
-            <Bell size={20} />
+            <Bell size={19} />
 
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full" />
+            <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-red-500" />
           </button>
 
-          <div className="flex items-center gap-2 border-l border-slate-200 pl-3 sm:pl-5">
-            <div className="w-9 h-9 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold">
-              {user.name.charAt(0)}
+          {/* Divider */}
+          <div className="mx-1 hidden h-8 border-l border-slate-200 sm:block dark:border-slate-700" />
+
+          {/* User Profile */}
+          <div className="flex min-w-0 items-center gap-2">
+
+            <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-indigo-100 text-sm font-bold text-indigo-600 sm:h-9 sm:w-9">
+              {userName.charAt(0).toUpperCase()}
             </div>
 
-            <div className="hidden sm:block">
-              <p className="text-sm font-semibold text-slate-800">
-                {user.name}
+            <div className="hidden min-w-0 sm:block">
+              <p className="max-w-[120px] truncate text-sm font-semibold text-slate-800 dark:text-white lg:max-w-[180px]">
+                {userName}
               </p>
 
-              <p className="text-xs text-slate-400 capitalize">
-                {user.role}
+              <p className="text-xs capitalize text-slate-400">
+                {user?.role || "Student"}
               </p>
             </div>
+
           </div>
-
         </div>
       </div>
     </header>
