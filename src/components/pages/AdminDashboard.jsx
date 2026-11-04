@@ -113,7 +113,6 @@ function AdminDashboard({ user, onLogout }) {
     <DashboardLayout user={user} onLogout={onLogout}>
       <div className="admin-dashboard w-full min-w-0 space-y-6 pb-8 sm:space-y-8">
 
-        {/* Welcome Banner */}
 <section className="relative w-full min-w-0 overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-indigo-600 via-violet-600 to-purple-700 p-5 text-white shadow-xl sm:p-8 lg:p-10">          <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
           <div className="absolute -bottom-20 -right-10 h-64 w-64 rounded-full bg-fuchsia-400/20 blur-3xl" />
 
@@ -147,7 +146,6 @@ function AdminDashboard({ user, onLogout }) {
           </div>
         </section>
 
-        {/* Statistics */}
         <section className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4 sm:gap-5">
           {stats.map((stat) => {
             const Icon = stat.icon;
@@ -182,7 +180,6 @@ function AdminDashboard({ user, onLogout }) {
           })}
         </section>
 
-        {/* Submission Progress */}
         <section className="min-w-0 rounded-2xl border border-indigo-100 bg-white p-4 shadow-sm transition-colors sm:p-6 lg:p-8 dark:border-slate-800 dark:bg-slate-900">
           <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-3">
@@ -213,7 +210,6 @@ function AdminDashboard({ user, onLogout }) {
           </div>
         </section>
 
-        {/* Assignment Management */}
         <section>
           <div className="mb-5 flex flex-col gap-3 sm:mb-6 sm:flex-row sm:items-center sm:justify-between">
             <div>
@@ -244,7 +240,6 @@ function AdminDashboard({ user, onLogout }) {
         </section>
       </div>
 
-      {/* Create Modal */}
       {showForm && (
         <AssignmentForm
           onSubmit={handleCreate}
@@ -252,7 +247,6 @@ function AdminDashboard({ user, onLogout }) {
         />
       )}
 
-      {/* Edit Modal */}
       {editingAssignment && (
         <AssignmentForm
           initialData={editingAssignment}
