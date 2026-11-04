@@ -111,11 +111,10 @@ function AdminDashboard({ user, onLogout }) {
 
   return (
     <DashboardLayout user={user} onLogout={onLogout}>
-      <div className="admin-dashboard space-y-8 pb-8">
+      <div className="admin-dashboard w-full min-w-0 space-y-6 pb-8 sm:space-y-8">
 
         {/* Welcome Banner */}
-        <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 via-violet-600 to-purple-700 p-7 text-white shadow-xl sm:p-10">
-          <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+<section className="relative w-full min-w-0 overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-indigo-600 via-violet-600 to-purple-700 p-5 text-white shadow-xl sm:p-8 lg:p-10">          <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
           <div className="absolute -bottom-20 -right-10 h-64 w-64 rounded-full bg-fuchsia-400/20 blur-3xl" />
 
           <div className="relative z-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
@@ -149,14 +148,14 @@ function AdminDashboard({ user, onLogout }) {
         </section>
 
         {/* Statistics */}
-        <section className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+        <section className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4 sm:gap-5">
           {stats.map((stat) => {
             const Icon = stat.icon;
 
             return (
               <div
                 key={stat.title}
-                className={`${cardClass} group relative overflow-hidden p-5 transition duration-300 hover:-translate-y-1 hover:shadow-xl`}
+                className={`${cardClass} group relative min-w-0 overflow-hidden p-4 sm:p-5 transition duration-300 hover:-translate-y-1 hover:shadow-xl`}
               >
                 <div className="flex items-center justify-between">
                   <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${stat.light}`}>
@@ -184,7 +183,7 @@ function AdminDashboard({ user, onLogout }) {
         </section>
 
         {/* Submission Progress */}
-        <section className="rounded-2xl border border-indigo-100 bg-white p-6 shadow-sm transition-colors sm:p-8 dark:border-slate-800 dark:bg-slate-900">
+        <section className="min-w-0 rounded-2xl border border-indigo-100 bg-white p-4 shadow-sm transition-colors sm:p-6 lg:p-8 dark:border-slate-800 dark:bg-slate-900">
           <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-100 text-indigo-600 dark:bg-indigo-950 dark:text-indigo-400">
@@ -216,7 +215,7 @@ function AdminDashboard({ user, onLogout }) {
 
         {/* Assignment Management */}
         <section>
-          <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mb-5 flex flex-col gap-3 sm:mb-6 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h2 className="text-2xl font-bold text-slate-800 dark:text-white">
                 Assignment Management
